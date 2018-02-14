@@ -10,3 +10,20 @@ function paintImage(e) {
   realTimeImage.src = e.target.result;
   // console.log(e.target);
 }
+
+// Obteniendo los elemtos
+var realTimeComment = document.getElementById("real-time-comment");
+var area = document.getElementById("text-comment");
+var sendComment = document.getElementById("send");
+var sizeText = document.getElementsByClassName("size-text");
+var alignText = document.getElementsByClassName("align-text");
+var textColor = document.getElementById("text-color");
+var backgroundColor = document.getElementById("background-color");
+var commentedPost = document.getElementById("comment-posted");
+var selectImage = document.getElementById("select-image");
+// Asignando eventos a los elementos
+area.addEventListener("keyup", getTextPreview);
+sendComment.addEventListener("click", printComments);
+textColor.addEventListener("click", changeTextColor);
+backgroundColor.addEventListener("click", chnageBackgroundColor);
+selectImage.addEventListener("change", readFile);
