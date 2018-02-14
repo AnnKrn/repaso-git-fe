@@ -1,5 +1,5 @@
 function readFile() {
-  if (this.files && this.files[0]) {
+  if (events.files && this.files[0]) {
     var newImages = new FileReader();
     newImages.addEventListener("load", paintImage);
     newImages.readAsDataURL(this.files[0]);
