@@ -1,5 +1,5 @@
 function readFile() {
-  if (this.files && this.files[0]) {
+  if (events.files && this.files[0]) {
     var newImages = new FileReader();
     newImages.addEventListener("load", paintImage);
     newImages.readAsDataURL(this.files[0]);
@@ -10,6 +10,7 @@ function paintImage(e) {
   realTimeImage.src = e.target.result;
   // console.log(e.target);
 }
+
 
 // Obteniendo los elemtos
 var realTimeComment = document.getElementById("real-time-comment");
@@ -28,13 +29,6 @@ textColor.addEventListener("click", changeTextColor);
 backgroundColor.addEventListener("click", chnageBackgroundColor);
 selectImage.addEventListener("change", readFile);
 
-// ciclos para recorrer las clases de los botones
-for (var i = 0; i < sizeText.length; i++) {
-  sizeText[i].addEventListener("click", changeSizeText);
-}
-for (var i = 0; i < alignText.length; i++) {
-  alignText[i].addEventListener("click", changeAlignText);
-}
 // para que se vea en tiempo real
 function getTextPreview() {
   var enteredText = area.value;
@@ -50,4 +44,24 @@ function changeSizeText() {
   } else {
     realTimeComment.style.fontSize = "20px";
   }
+
+// pintar comentio en publicaciones
+function printComments (){
+  var text = getTextPreview();
+  var publishComment = text.parentNode.cloneNode(true);
+  console.log(text.parentNode);
+  commentedPost.insertBefore(publishComment, commentedPost.firstChild);
+  area.value = " ";
+  text.removeAttribute("style");
+  text.innerText = " ";
+  // document.getElementById("real-time-image").removeAttribute("src");
 }
+
+// ciclos para recorrer las clases de los botones
+for (va=======r i = 0; i < sizeText.length; i++) {
+  sizeText[i].addEventListener("click", changeSizeText);
+}
+for (var i = 0; i < alignText.length; i++) {
+  alignText[i].addEventListener("click", changeAlignText);
+}
+
