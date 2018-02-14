@@ -27,3 +27,27 @@ sendComment.addEventListener("click", printComments);
 textColor.addEventListener("click", changeTextColor);
 backgroundColor.addEventListener("click", chnageBackgroundColor);
 selectImage.addEventListener("change", readFile);
+
+// ciclos para recorrer las clases de los botones
+for (var i = 0; i < sizeText.length; i++) {
+  sizeText[i].addEventListener("click", changeSizeText);
+}
+for (var i = 0; i < alignText.length; i++) {
+  alignText[i].addEventListener("click", changeAlignText);
+}
+// para que se vea en tiempo real
+function getTextPreview() {
+  var enteredText = area.value;
+  realTimeComment.innerText = enteredText;
+  return realTimeComment;
+}
+// Para cambiar los tamaños de los comentarios
+function changeSizeText() {
+  if (this.value === "large") {
+    realTimeComment.style.fontSize = "50px";
+  } else if (this.value === "medium") {
+    realTimeComment.style.fontSize = "40px";
+  } else {
+    realTimeComment.style.fontSize = "20px";
+  }
+}
