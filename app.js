@@ -10,3 +10,15 @@ function paintImage(e) {
   realTimeImage.src = e.target.result;
   // console.log(e.target);
 }
+
+// pintar comentio en publicaciones
+function printComments (){
+  var text = getTextPreview();
+  var publishComment = text.parentNode.cloneNode(true);
+  console.log(text.parentNode);
+  commentedPost.insertBefore(publishComment, commentedPost.firstChild);
+  area.value = " ";
+  text.removeAttribute("style");
+  text.innerText = " ";
+  // document.getElementById("real-time-image").removeAttribute("src");
+}
